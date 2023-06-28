@@ -11,10 +11,10 @@ do {
 var numeros = cpf.split("").map(Number);
 
 // Chamada da função check para cálculo dos dígitos verificadores
-check(9, numeros);
-alert("cpf agr ficou: " + numeros + "\n\n")
-check(10, numeros);
-alert("cpf agr ficou: " + numeros + "\n\n")
+numeros = check(9, numeros);
+alert("CPF agora ficou: " + numeros + "\n\n");
+numeros = check(10, numeros);
+alert("CPF agora ficou: " + numeros + "\n\n");
 
 
 var original = cpf.split("").map(Number);
@@ -52,8 +52,6 @@ function check(range, cpfArray) {
   alert("primeiro digito: " + digito);
 
   // Faz o envio
-  backup[range] = digito;
-  cpfArray = backup // Faz uma cópia do array original
-  alert(cpfArray);
-  return cpfArray;
+backup[range] = digito;
+  return backup;
 }
