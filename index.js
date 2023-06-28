@@ -1,25 +1,17 @@
-//import { check } from './function.js';
-//não pegou no replit
-// Laço de validação dos números
-do {
-  var cpf = prompt("Digite seu CPF");
-  // len(cpf) função que retorna. cpf.len método para variáveis & ( = ) -> recebe. ( == ) -> igual
-} while (cpf.length !== 11 || isNaN(cpf));
 
-/* Fazer um array receber a var para podermos iterar e trabalhar */
-// Divide a string e transforma em números
+do {
+  var cpf = prompt("Digite seu CPF");} while (cpf.length !== 11 || isNaN(cpf));
+
 var numeros = cpf.split("").map(Number);
 
-// Chamada da função check para cálculo dos dígitos verificadores
 numeros = check(9, numeros);
-alert("CPF agora ficou: " + numeros + "\n\n");
+alert("CPF agora ficou: " + numeros + "\n\n"); 
 numeros = check(10, numeros);
 alert("CPF agora ficou: " + numeros + "\n\n");
 
 
 var original = cpf.split("").map(Number);
 
-// Faz o casting, sempre é a tal da igualdade igual (igualdade restrita)
 if (original.toString() === numeros.toString()) {
   alert("Válido");
 } else {
@@ -28,11 +20,12 @@ if (original.toString() === numeros.toString()) {
 
 }
 
-//export check tbm n
+
 function check(range, cpfArray) {
-  // Atribui a multiplicação
-  var backup = cpfArray.slice(); // Faz uma cópia do array original
-  for (let i = 0; i < range; i++) {
+  
+  var backup = cpfArray.slice();
+  
+  for (let i = 0; i < range; i++){
     cpfArray[i] *= i + 1;
   }
 
@@ -47,11 +40,11 @@ function check(range, cpfArray) {
     digito = 0;
   }
 
-  // Digito recebe ele como integer
+  
   digito = parseInt(digito);
   alert("primeiro digito: " + digito);
 
-  // Faz o envio
+  
 backup[range] = digito;
   return backup;
 }
